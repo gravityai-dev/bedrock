@@ -11,7 +11,7 @@ AWS Bedrock integration for Gravity workflow system, providing access to Claude 
 ## Installation
 
 ```bash
-npm install @gravityai-dev/bedrock
+npm install @gravityai-dev/aws-bedrock
 ```
 
 ## Available Nodes
