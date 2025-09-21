@@ -9,9 +9,9 @@ import BedrockEmbeddingServiceExecutor from "./executor";
  */
 export function createNodeDefinition(): EnhancedNodeDefinition {
   const { NodeInputType } = getPlatformDependencies();
-  
+
   return {
-    packageVersion: "1.0.34",
+    packageVersion: "1.0.37",
     type: "BedrockEmbeddingService",
     name: "Embedding Service",
     description: "AWS Bedrock embedding service provider - responds to SERVICE_CALL signals",
@@ -19,8 +19,8 @@ export function createNodeDefinition(): EnhancedNodeDefinition {
     color: "#10a37f",
     logoUrl: "https://res.cloudinary.com/sonik/image/upload/v1749137717/gravity/icons/vdyfnijyuyk8ajqtp3nu.webp",
 
-    // SERVICE NODE - responds to SERVICE_CALL signals
-    isService: true,
+    // Node template for styling
+    template: "service", // Options: "standard", "service", "mini"
 
     // NO REGULAR INPUTS/OUTPUTS - services use service connectors
     inputs: [],
@@ -33,6 +33,7 @@ export function createNodeDefinition(): EnhancedNodeDefinition {
         description: "Provides embedding generation services",
         serviceType: "embedding",
         methods: ["createEmbedding", "createBatchEmbeddings"],
+        isService: true, // This connector PROVIDES embedding services to others
       },
     ],
 
