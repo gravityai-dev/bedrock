@@ -8,9 +8,9 @@ import BedrockClaudeExecutor from "./executor";
 
 export function createNodeDefinition(): EnhancedNodeDefinition {
   const { NodeInputType } = getPlatformDependencies();
-  
+
   return {
-    packageVersion: "1.0.37",
+    packageVersion: "1.0.39",
     type: "BedrockClaude",
     isService: false,
     name: "Bedrock Claude",
@@ -53,11 +53,11 @@ export function createNodeDefinition(): EnhancedNodeDefinition {
           title: "Model",
           description: "Select the Claude model to use",
           enum: [
+            "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
             "us.anthropic.claude-sonnet-4-20250514-v1:0",
-            "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
             "us.anthropic.claude-3-5-haiku-20241022-v1:0",
           ],
-          enumNames: ["Claude Sonnet 4 (Latest)", "Claude 3.5 Sonnet", "Claude 3.5 Haiku"],
+          enumNames: ["Claude Sonnet 4.5", "Claude Sonnet 4", "Claude 3.5 Haiku"],
           default: "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
         },
         maxTokens: {
@@ -88,7 +88,8 @@ export function createNodeDefinition(): EnhancedNodeDefinition {
         prompt: {
           type: "string",
           title: "Prompt",
-          description: "User message/prompt. Supports template syntax like {{input.fieldName}} to reference input data.",
+          description:
+            "User message/prompt. Supports template syntax like {{input.fieldName}} to reference input data.",
           default: "",
           "ui:field": "template",
         },
